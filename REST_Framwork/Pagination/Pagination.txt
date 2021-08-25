@@ -1,0 +1,22 @@
+Pagination :-  agar mere pas ek huge data hai, to use fetch krne pe kafi lamba time lgega ek sath fetch krne mai, 
+               to is kam ko krne ke liye hum ye kr skte hai ki, data ko 1-1 kakr ke split kre individual pages pe
+               taki time jada na lge kam fast hoga
+
+Pagination global setting :
+DEFAULT_PAGINATION_CLASS and PAGE_SIZE
+REST_FRAMEWORK ={
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE':5
+}
+
+LimitOffset :- limit mtlb kitna data show krna hai ek page pe, offset mtlb kaha se/ kis page se data dekhna h.
+
+CursourPginaton :- ye number wale page ki jagh next aur previous page 
+                    bnata h, ye arbitary position allow nhi krta,isme data
+                    unique way me save hota ho by default me jisme timestap
+                    ka use kiya jata h, isko aise smjhiye ki koi blog page h,
+                    jisme jo bhi naya entry(reply/comment) aya wo phle show
+                    krega, isme ye assume krta h ki apne model me ek created timestamp
+                    bnaya hoga, agr nhi bnya to override kr skte h by ye by default
+                    me bas assume krta h ki timestamp ho to chize uniqly time ke 
+                    behalf me show krega
